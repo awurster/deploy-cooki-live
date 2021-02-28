@@ -7,5 +7,6 @@ menu: main
 weight: 1
 ---
 
-![image](/42n-cooki-logo.png)
 # Wht wll yr 42n b?
+![image](/42n-cooki-logo.png)
+

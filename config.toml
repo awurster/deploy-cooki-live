@@ -13,12 +13,12 @@ description = "42n cooki"       # Description for the meta description tag
 
 [params.palette]
     text = "#efefef"
-    background = "#FEFAE0"
+    background = "#d0ddd7"
     accent = "#2a1a1f"
     foreground = "#3d3d3d"
-    separator = "#c6ac8f"
+    separator = "#a5ae9e"
     cyan = "#8be9fd"
-    green = "#806443"
+    green = "#7e846b"
     orange = "#ffb86c"
     pink = "#ff79c6"
     purple = "#bd93f9"
@@ -32,4 +32,22 @@ description = "42n cooki"       # Description for the meta description tag
     font = "Nanum Brush Script"   # Name of the Google Font you want to use
 
 
+[deployment]
+
+    [[deployment.targets]]
+    # An arbitrary name for this target.
+    name = "s3-static-cooki-live"
+    # S3; see https://gocloud.dev/howto/blob/#s3
+    URL = "s3://cooki.live?region=eu-central-1"
+    # http://cooki.live.s3-website.eu-central-1.amazonaws.com
+
+    [[deployment.matchers]]
+    # Cache static assets for 20 years.
+    pattern = "^.+\\.(js|css|png|jpg|gif|svg|ttf)$"
+    cacheControl = "max-age=630720000, no-transform, public"
+    gzip = true
+
+    [[deployment.matchers]]
+    pattern = "^.+\\.(html|xml|json)$"
+    gzip = true
     
